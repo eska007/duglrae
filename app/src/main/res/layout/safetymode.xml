@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/endscreen">
+
+    <TextView android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="55dp"
+        android:textSize="20dp"
+        android:text="Duglrae"
+        android:typeface="sans"
+        android:textColor="#87CEEB"
+        android:textStyle="bold"
+        android:backgroundTint="#FFFFFF"/>
+
+    <TextView android:id="@+id/content2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="120dp"
+        android:textSize="20dp"
+        android:text="안전운전모드 실행!"
+        android:typeface="sans"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:backgroundTint="#FFFFFF"/>
+
+    <ImageButton
+        android:id="@+id/button0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="496dp"
+        android:background="@drawable/stopbutton"
+        android:layout_marginLeft="133dp"
+        />
+</RelativeLayout>

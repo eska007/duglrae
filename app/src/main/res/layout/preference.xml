@@ -1,0 +1,35 @@
+<PreferenceScreen
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+    <PreferenceCategory android:title="Blocking">
+        <CheckBoxPreference
+            android:key="auto_block"
+            android:title="Auto Blocking"
+            android:summary="Check the velocity of user to turn Safety Driving mode on"
+            android:persistent="true"
+            android:backgroundTint="#87CEEB"/>
+        <CheckBoxPreference
+            android:key="block_call"
+            android:title="Manual Blocking"
+            android:summary="Set to block Calling and SMS"
+            android:persistent="true"
+            android:backgroundTint="#87CEEB"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Respond Message">
+        <CheckBoxPreference
+            android:key="response"
+            android:title="Auto-Response"
+            android:summary="Switch to respond with sending a message"
+            android:persistent="true"/>
+        <EditTextPreference
+            android:key="response_msg"
+            android:title="Custom Message"
+            android:summary="Custom the respond message"
+            android:dialogTitle="Custom message"
+            android:dialogMessage="Provide message"
+            />
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

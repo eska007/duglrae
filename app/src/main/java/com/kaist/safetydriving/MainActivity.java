@@ -2,9 +2,11 @@ package com.kaist.safetydriving;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
@@ -17,10 +19,13 @@ import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.kaist.safetydriving.Interface.PermissionActionListener;
 import com.kaist.safetydriving.Util.ActivityUtilities;
+
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends Activity implements PermissionActionListener {
     private static final String TAG = "MainActivity";
@@ -28,6 +33,8 @@ public class MainActivity extends Activity implements PermissionActionListener {
     private ComponentName mSafetyDrivingService;
     private IBinder i;
     public int serviceStatus;
+
+
 
     @Override
     public void onPermissionDenied() {
@@ -95,6 +102,19 @@ public class MainActivity extends Activity implements PermissionActionListener {
                 if ( ((SafetyDrivingService.MyBinder)i).safetyModeTurnOn() ) {
                 }
             }
+        }
+        );
+
+        //Regist exception monitor
+        final Activity mActivity = this;
+        Thread.setDefaultUncaughtExceptionHandler(new ExceptionMonitor(mActivity));
+        Button exceptionBt = (Button) findViewById(R.id.button4);
+        exceptionBt.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               final IllegalStateException e = new IllegalStateException("TEST Exception");
+               throw e;
+           }
         }
         );
     }

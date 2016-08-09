@@ -66,15 +66,6 @@ public class ExceptionMonitor extends Exception implements Thread.UncaughtExcept
 
         //This will stop your application and take out from it.
         System.exit(2);
-
-        /*
-        Intent launchIntent = new Intent(mContext.getIntent());
-        PendingIntent pending = PendingIntent.getActivity(CSApplication.getContext(), 0,
-                launchIntent, activity().getIntent().getFlags());
-        getAlarmManager().set(AlarmManager.RTC, System.currentTimeMillis() + 2000, pending);
-        defaultHandler.uncaughtException(thread, ex);
-*/
-
     }
 
 }

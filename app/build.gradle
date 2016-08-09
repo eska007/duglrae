@@ -21,5 +21,4 @@ dependencies {
     //compile 'com.android.support:support-v4:18.0.0'
     compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     testCompile 'junit:junit:4.12'
-    testCompile 'junit:junit:4.12'
 }

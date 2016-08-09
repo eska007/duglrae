@@ -25,16 +25,13 @@ import android.widget.ImageButton;
 import com.kaist.safetydriving.Interface.PermissionActionListener;
 import com.kaist.safetydriving.Util.ActivityUtilities;
 
-import java.util.concurrent.ExecutionException;
-
 public class MainActivity extends Activity implements PermissionActionListener {
     private static final String TAG = "MainActivity";
     ImageButton startButton;
     private ComponentName mSafetyDrivingService;
     private IBinder i;
     public int serviceStatus;
-
-
+    private Activity mActivity;
 
     @Override
     public void onPermissionDenied() {
@@ -61,6 +58,7 @@ public class MainActivity extends Activity implements PermissionActionListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate");
+        mActivity = this;
         Intent bintent = new Intent(MainActivity.this, SafetyModeActivity.class);
         super.onCreate(savedInstanceState);
 
@@ -105,9 +103,15 @@ public class MainActivity extends Activity implements PermissionActionListener {
         }
         );
 
-        //Regist exception monitor
-        final Activity mActivity = this;
+        //Regist the exception monitor
+        registExceptionMonitor();
+    }
+
+    private void registExceptionMonitor() {
+
         Thread.setDefaultUncaughtExceptionHandler(new ExceptionMonitor(mActivity));
+
+        //Test code for Exception
         Button exceptionBt = (Button) findViewById(R.id.button4);
         exceptionBt.setOnClickListener(new View.OnClickListener() {
            @Override

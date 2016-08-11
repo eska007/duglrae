@@ -19,6 +19,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import com.kaist.safetydriving.Interface.PermissionActionListener;
 import com.kaist.safetydriving.Util.ActivityUtilities;
@@ -87,6 +88,7 @@ public class MainActivity extends Activity implements PermissionActionListener {
             startActivity(bintent);
         } else {
             setContentView(R.layout.activity_main);
+
         }
 
         startButton = (ImageButton) findViewById(R.id.button1);
@@ -96,6 +98,7 @@ public class MainActivity extends Activity implements PermissionActionListener {
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, SafetyModeActivity.class);
                 if ( ((SafetyModeMngrService.MyBinder)i).safetyModeTurnOn() ) {
+                    startActivity(intent);
                 }
             }
         }

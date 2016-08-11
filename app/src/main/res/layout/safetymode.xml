@@ -36,4 +36,29 @@
         android:background="@drawable/stopbutton"
         android:layout_marginLeft="133dp"
         />
+
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        android:id="@+id/layout_emergency"
+        android:orientation="vertical"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_call119"
+            android:layout_width="wrap_content"
+            android:text="119"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_call112"
+            android:layout_width="wrap_content"
+            android:text="112"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
 </RelativeLayout>

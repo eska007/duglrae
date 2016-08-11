@@ -8,6 +8,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
+import com.kaist.safetydriving.db.DatabaseHelper;
+
 public class ViewHistoryActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -17,10 +19,10 @@ public class ViewHistoryActivity extends Activity {
         ListView lvHistory = (ListView)findViewById(R.id.lvHistrory);
         DatabaseHelper mDB = new DatabaseHelper(this);
         Cursor constantsCursor = mDB.getReadableDatabase().rawQuery("SELECT * FROM history", null);
-        ListAdapter adapter = new SimpleCursorAdapter(this, R.layout.row, constantsCursor,
-                new String[] { DatabaseHelper.CONTENT, DatabaseHelper.SENDER, DatabaseHelper.ARRIVALTIME },
-                new int[] {R.id.content, R.id.sender, R.id.arrival_time});
-        lvHistory.setAdapter(adapter);
+//        ListAdapter adapter = new SimpleCursorAdapter(this, R.layout.row, constantsCursor,
+//                new String[] { DatabaseHelper.CONTENT, DatabaseHelper.SENDER, DatabaseHelper.ARRIVALTIME },
+//                new int[] {R.id.content, R.id.sender, R.id.arrival_time});
+//        lvHistory.setAdapter(adapter);
     }
 
     @Override

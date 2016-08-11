@@ -2,11 +2,9 @@ package com.kaist.safetydriving;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
@@ -42,8 +40,8 @@ public class MainActivity extends Activity implements PermissionActionListener {
     public void onPermissionGranted(int requestCode) {
         Log.d(TAG, "onPermissionGranted");
         if(requestCode == ActivityUtilities.PERMISSIONS_REQUEST_CALL_PHONE) {
-            mSafetyDrivingService = startService(new Intent(this, SafetyDrivingService.class));
-            Intent bindIntent = new Intent(this, SafetyDrivingService.class);
+            mSafetyDrivingService = startService(new Intent(this, SafetyModeMngrService.class));
+            Intent bindIntent = new Intent(this, SafetyModeMngrService.class);
             Log.d(TAG, "onPermissionGranted start binding");
             bindService(bindIntent, mConnection, Context.BIND_AUTO_CREATE);
         }
@@ -97,7 +95,7 @@ public class MainActivity extends Activity implements PermissionActionListener {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, SafetyModeActivity.class);
-                if ( ((SafetyDrivingService.MyBinder)i).safetyModeTurnOn() ) {
+                if ( ((SafetyModeMngrService.MyBinder)i).safetyModeTurnOn() ) {
                 }
             }
         }
@@ -129,7 +127,7 @@ public class MainActivity extends Activity implements PermissionActionListener {
     }
 
     public void preference(View v) {
-        Intent intent = new Intent(MainActivity.this, EditPreferenceActivity.class);
+        Intent intent = new Intent(MainActivity.this, UserSettingActivity.class);
         startActivity(intent);
     }
 

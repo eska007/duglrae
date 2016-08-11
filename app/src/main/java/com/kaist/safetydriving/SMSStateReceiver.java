@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
+import com.kaist.safetydriving.db.DatabaseHelper;
+
 import java.util.Calendar;
 
 public class SMSStateReceiver extends BroadcastReceiver

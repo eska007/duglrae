@@ -35,13 +35,13 @@ public class SafetyModeActivity extends Activity {
         }
         setContentView(R.layout.safetymode);
 
-        Intent bindIntent = new Intent(this, SafetyDrivingService.class);
+        Intent bindIntent = new Intent(this, SafetyModeMngrService.class);
         stopButton = (ImageButton) findViewById(R.id.button0);
         stopButton.setOnClickListener(new View.OnClickListener()
                                 {
                                     @Override
                                     public void onClick(View v){
-                                        ((SafetyDrivingService.MyBinder)i).safetyModeTurnOff();
+                                        ((SafetyModeMngrService.MyBinder)i).safetyModeTurnOff();
                                         unbindService(mConnection);
 
                                         SafetyModeActivity.this.finish();
